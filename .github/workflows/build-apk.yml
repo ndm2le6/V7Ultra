@@ -26,8 +26,8 @@ jobs:
           distribution: temurin
           java-version: 21
 
-      - name: Install dependencies
-        run: npm install
+      - name: Install dependencies retry
+        run: |npm install --legacy-peer-deps --no-audit --no-fund || npm install --force --no-audit --no-fund
 
       - name: Build web game
         run: npm run build
