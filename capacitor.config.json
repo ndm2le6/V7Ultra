@@ -1,0 +1,8 @@
+{
+  "appId": "com.rinndm.v7official",
+  "appName": "Rin-NDM V7 Ultra",
+  "webDir": "dist",
+  "server": {
+    "androidScheme": "https"
+  }
+}
