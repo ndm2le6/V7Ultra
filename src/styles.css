@@ -1,0 +1,51 @@
+
+:root{
+  --bg:#0f172a; --panel:rgba(255,255,255,.14); --panel2:rgba(255,255,255,.22);
+  --text:#fff; --muted:rgba(255,255,255,.72); --gold:#fbbf24; --gem:#60a5fa; --pink:#fb7185;
+  --green:#34d399; --danger:#fb7185; --shadow:0 24px 80px rgba(0,0,0,.28);
+  font-family: Inter, ui-rounded, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body,#app{height:100%;margin:0;overflow:hidden;background:#090e1f;color:var(--text)}
+button,input,textarea{font:inherit}
+button{border:0;cursor:pointer}
+.game{height:100%;display:grid;grid-template-rows:auto 1fr auto;position:relative;background:
+  radial-gradient(circle at 50% 10%, rgba(255,205,225,.22), transparent 30%),
+  linear-gradient(180deg,#12254a,#101828 52%,#07111f);}
+.game.night{background:radial-gradient(circle at 70% 12%, rgba(180,205,255,.24), transparent 18%),linear-gradient(180deg,#070b21,#111827 58%,#06111e)}
+#world{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+.hud{z-index:5;display:flex;align-items:center;justify-content:space-between;padding:calc(env(safe-area-inset-top) + 14px) 14px 8px;gap:8px;pointer-events:none}
+.hud-left,.hud-right{display:flex;gap:8px;align-items:center;pointer-events:auto}
+.chip{height:42px;display:flex;align-items:center;gap:8px;padding:0 12px;border-radius:999px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(18px);box-shadow:0 12px 40px rgba(0,0,0,.16);font-weight:900}
+.lv{height:50px;padding:0 14px;background:linear-gradient(135deg,rgba(255,255,255,.22),rgba(255,255,255,.09));}
+.lv-ring{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--pink) var(--xp),rgba(255,255,255,.2) 0);font-size:10px;font-weight:1000}
+.scene-ui{z-index:4;align-self:end;display:flex;justify-content:center;padding:0 14px 18px;pointer-events:none}
+.needs{display:flex;gap:8px;max-width:100%;overflow:auto;padding:8px;border-radius:28px;background:rgba(9,14,31,.24);backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.12);pointer-events:auto}
+.need{min-width:74px;text-align:center;border-radius:22px;padding:8px 9px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.12)}
+.need i{font-style:normal;font-size:20px;display:block}.need b{font-size:12px}
+.nav{z-index:6;display:grid;grid-template-columns:repeat(5,1fr);gap:8px;padding:8px 12px calc(env(safe-area-inset-bottom) + 10px);background:linear-gradient(180deg,transparent,rgba(2,6,23,.76) 18%,rgba(2,6,23,.92));}
+.nav button{height:62px;border-radius:22px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.14);color:#fff;display:grid;place-items:center;font-weight:950;box-shadow:0 12px 30px rgba(0,0,0,.16)}
+.nav button.active{background:linear-gradient(135deg,#fb7185,#8b5cf6)}
+.nav span{font-size:22px;line-height:1}.nav small{font-size:10px;opacity:.86;margin-top:-8px}
+.sheet{position:absolute;z-index:20;inset:auto 10px calc(env(safe-area-inset-bottom) + 88px) 10px;max-height:72vh;overflow:auto;border-radius:34px;background:rgba(15,23,42,.82);border:1px solid rgba(255,255,255,.16);box-shadow:var(--shadow);backdrop-filter:blur(24px);padding:16px;transform:translateY(16px);opacity:0;pointer-events:none;transition:.24s ease}
+.sheet.show{transform:translateY(0);opacity:1;pointer-events:auto}
+.sheet h2{margin:0 0 12px;font-size:24px}.sheet p{color:var(--muted)}
+.close{position:sticky;top:0;float:right;width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.14);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.card{border-radius:24px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.14);padding:14px;box-shadow:0 14px 40px rgba(0,0,0,.14)}
+.card h3{margin:0 0 6px}.card small{color:var(--muted)}
+.action{border-radius:18px;padding:12px 14px;background:#fff;color:#0f172a;font-weight:1000}
+.action.gold{background:linear-gradient(135deg,#fbbf24,#f97316);color:#111827}.action.gem{background:linear-gradient(135deg,#7dd3fc,#2563eb);color:#fff}.action.pink{background:linear-gradient(135deg,#fb7185,#8b5cf6);color:#fff}
+.shop-tabs{display:flex;gap:8px;margin-bottom:12px}.shop-tabs button{flex:1;border-radius:18px;padding:12px;background:rgba(255,255,255,.12);color:#fff;font-weight:950}.shop-tabs button.active{background:#fff;color:#111827}
+.row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:8px 0}.bar{height:10px;background:rgba(255,255,255,.16);border-radius:999px;overflow:hidden}.bar span{display:block;height:100%;background:linear-gradient(90deg,#34d399,#a7f3d0);border-radius:inherit}
+.chat{position:absolute;z-index:9;left:14px;bottom:calc(env(safe-area-inset-bottom) + 95px);width:64px;height:64px;border-radius:24px;background:linear-gradient(135deg,#0f172a,#2563eb);color:#fff;font-size:26px;box-shadow:0 20px 60px rgba(0,0,0,.32)}
+.floating-actions{position:absolute;z-index:8;right:14px;bottom:calc(env(safe-area-inset-bottom) + 95px);display:flex;flex-direction:column;gap:10px}
+.round{width:62px;height:62px;border-radius:24px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(18px);font-size:24px;color:#fff;box-shadow:0 16px 50px rgba(0,0,0,.24)}
+.toast{position:absolute;z-index:50;left:50%;bottom:130px;transform:translateX(-50%);padding:12px 18px;border-radius:999px;background:rgba(15,23,42,.92);color:#fff;font-weight:900;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:.25s}
+.toast.show{opacity:1;bottom:150px}
+.splash{position:absolute;z-index:60;inset:0;display:grid;place-items:center;background:radial-gradient(circle at 50% 32%,#ffe4f1,transparent 30%),linear-gradient(180deg,#fff7fb,#dbeafe);color:#111827;transition:.55s}
+.splash.hide{opacity:0;pointer-events:none}
+.logo{width:132px;height:132px;border-radius:38px;background:linear-gradient(135deg,#fb7185,#60a5fa);display:grid;place-items:center;color:white;font-size:58px;box-shadow:0 35px 100px rgba(15,23,42,.24);animation:breathe 2.4s ease-in-out infinite}
+@keyframes breathe{50%{transform:translateY(-8px) scale(1.03)}}
+.lesson-list{display:grid;gap:10px}.input{width:100%;border:1px solid rgba(255,255,255,.18);border-radius:20px;background:rgba(255,255,255,.12);color:#fff;padding:14px;outline:0}.input::placeholder{color:rgba(255,255,255,.54)}
+@media(min-width:760px){.sheet{left:50%;right:auto;width:720px;transform:translate(-50%,16px)}.sheet.show{transform:translate(-50%,0)}}
